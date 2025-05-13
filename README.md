@@ -1,58 +1,105 @@
-# Cerebral Tuberculoma in Pregnant Women: Systematic Review Repository
+# Cerebral Tuberculoma in Pregnancy (1975 – 2025)
 
-## Overview
-This repository is dedicated to the systematic review titled "Cerebral Tuberculoma in Pregnant Women: A Systematic Review and Comprehensive Analysis of Literature," which examines the diagnostic and management complexities of cerebral tuberculomas during pregnancy.
+### Systematic Review & Descriptive Analysis of 33 Reported Cases
 
-## Content
-Contained within this repository are:
+---
 
-- `Dataframe_tuberculoma.xlsx`: The compiled dataset from the literature reviewed, including 26 cases across 16 countries.
-- `Script_limpieza.R`: The R script detailing the data cleaning process for the systematic review.
-- `Script_analisis.R`: The R script outlining the analysis conducted, including descriptive statistics and thematic synthesis of findings.
+**Pre‑print:** https://www.researchsquare.com/article/rs-4349914/v1
+**Last update:** 13 May 2025
 
-## Systematic Review Process
-The `Script_limpieza.R` outlines the process for extracting and refining the data from the selected studies, ensuring a consistent and reliable dataset for analysis.
+---
 
-The `Script_analisis.R` details the methodology for analyzing the clinical manifestations, diagnostic strategies, and treatment options reported in the literature, as well as the absence of comprehensive guidelines for this condition.
+## 1 · Project Scope
 
-## Usage
-To review the analysis or conduct further study:
+This repository contains the fully reproducible workflow for the systematic review **“Cerebral Tuberculoma in Pregnant Women: A 50‑Year Synthesis of the Literature.”** We harmonised every individual‑level case published between January 1975 and March 2025 to describe presentation, diagnostics, treatment and maternal–fetal outcomes.
 
-1. Clone the repository.
-2. Execute the R scripts in the order provided to replicate the systematic review process.
+---
 
-## Citation
-Please cite this systematic review as follows if you utilize the dataset or scripts:
+## 2 · Repository Structure
 
-> Vinueza, D., Rebellón-Sanchez, D. E., Llanos, J. A., Rosso, F. (2024). Cerebral Tuberculoma in Pregnant Women: A Systematic Review and Comprehensive Analysis of Literature [Data set]. GitHub. https://github.com/derebellon/tuberculoma_data
+| Path / File              | Purpose                                      |
+| ------------------------ | -------------------------------------------- |
+| `data/`                  | Curated datasets (Excel + RDS)               |
+|  ├── `df_symptoms.*`     | Maternal symptoms *(n = 33)*                 |
+|  ├── `df_clinical.*`     | Objective clinical findings                  |
+|  ├── `df_diagnosis.*`    | Laboratory, CSF & neuro‑imaging data         |
+|  └── `df_treatment.*`    | Management and outcomes                      |
+| `scripts/`               | Executable R pipelines                       |
+|  ├── `Script_limpieza.R` | Data cleaning & export                       |
+|  └── `Script_analisis.R` | Descriptive analysis (gtsummary)             |
+| `figures/`               | Static figures (e.g. **Figure 1** BioRender) |
+| `README.md`              | This file                                    |
+| `LICENSE`                | MIT Licence                                  |
 
-## Authors and Affiliations
-Daniela Vinueza1 *, David E. Rebellón-Sanchez 1,2, Julio Alfredo Llanos1, Fernando Rosso 1, 3
-1 Clinical Research Center, Fundación Valle del Lili, Cali, Colombia
-2 Faculty of Health Sciences, Universidad Icesi, Cali, Colombia
-3 Internal Medicine Department, Fundación Valle del Lili, Cali, Colombia
+---
 
-*Corresponding author:
-Daniela Vinueza-Obando, MD
-Clinical Research Center
-Fundación Valle del Lili, Carrera. 98 # 18-49, Cali 760031, Colombia.
-E-mail: daniela.vinueza@fvl.org.co
+## 3 · Quick Start
 
-## Abstract
-The abstract of the systematic review is as follows:
+### 3.1 Prerequisites
 
-This systematic review and descriptive analysis examines the diagnostic and management complexities of cerebral tuberculomas in pregnant women, a condition infrequent and characterized by a wide spectrum of symptoms resembling those of other neurological diseases. We analyzed data from 26 cases across 16 countries, highlighting the clinical manifestations, diagnostic strategies—including diverse interpretations of histopathological, imaging, and laboratory findings—and treatment options for tuberculomas during pregnancy. The absence of comprehensive guidelines for managing this condition underscores the urgent need for specialized knowledge and research in this area, aiming to improve outcomes for both pregnant women and their products of gestation.
+| Software | Tested version                                        |
+| -------- | ----------------------------------------------------- |
+| R        | ≥ 4.3                                                 |
+| RStudio  | ≥ 2023.12                                             |
+| Packages | `dplyr`, `gtsummary`, `readxl`, `ggplot2`, `openxlsx` |
 
-## Data Integrity and Contributions
-The integrity of the data compiled in this systematic review was meticulously verified by Daniela Vinueza. David E. Rebellón-Sanchez was responsible for the writing of all R code, the design and execution of the statistical analysis, and the uploading of data and scripts to this GitHub repository. His comprehensive understanding of the dataset and the analysis is instrumental for any queries related to the computational aspects of this research.
+### 3.2 Reproduce analysis
 
-For inquiries specifically regarding the data integrity, R code, statistical analysis, or the contents of this GitHub repository, please direct your questions to David E. Rebellón-Sanchez at:
+```bash
+# Clone repository
+git clone https://github.com/derebellon/tuberculoma_data.git
+cd tuberculoma_data
 
-- E-mail: derebellons@gmail.com
+# Generate cleaned datasets
+Rscript scripts/Script_limpieza.R
 
-Please ensure to include a detailed description of your query so it can be addressed promptly and accurately.
+# Produce summary tables
+Rscript scripts/Script_analisis.R
+```
 
-## Contact
-For any queries regarding this repository or the systematic review, please contact the corresponding author at the email address provided.
+Tables print to console; redirect output if persistent files are required.
 
-Note: The data and scripts are provided for academic purposes only and do not replace comprehensive medical guidelines.
+---
+
+## 4 · Key Findings (snapshot)
+
+| Domain                     | Principal result (n = 33)                                      |
+| -------------------------- | -------------------------------------------------------------- |
+| **Median maternal age**    | 26 y (IQR 23–29)                                               |
+| **Diagnosis timing**       | 45 % ante‑partum · 55 % post‑partum                            |
+| **Dominant symptoms**      | Headache 59 % · Fever 56 % · Seizures 48 %                     |
+| **Neuro‑imaging**          | 70 % supratentorial · 30 % infratentorial; 58 % ring‑enhancing |
+| **Treatment**              | 97 % four‑drug anti‑TB + steroids; 60 % biopsy/resection       |
+| **Maternal mortality**     | 4.5 %                                                          |
+| **Live births**            | 26 / 33 pregnancies (79 %); 72 % pre‑term                      |
+| **Neonatal complications** | 50 % overall; congenital TB 17 %                               |
+
+*See **Figure 1** in `figures/` for the symptom‑to‑outcome cascade.*
+
+---
+
+## 5 · Citation
+
+> Rebellón‑Sánchez DE, Vinueza D, Castro Restrepo DE, Llanos JA, Rosso F.
+> *Cerebral Tuberculoma in Pregnancy (1975–2025): Systematic Review & Descriptive Analysis of 33 Cases* \[dataset and code]. GitHub. 2025.
+> URL: [https://github.com/derebellon/tuberculoma\_data](https://github.com/derebellon/tuberculoma_data)
+
+Please cite the pre‑print once available for full methodological details.
+
+---
+
+## 6 · Contributing
+
+Pull requests improving documentation, reproducibility or extending analyses are welcome. For data or code queries contact **David E. Rebellón‑Sánchez**:
+
+* ✉️ david.rebellon‑[sanchez@lshtm.ac.uk](mailto:sanchez@lshtm.ac.uk) │ [derebellons@gmail.com](mailto:derebellons@gmail.com)
+
+---
+
+## 7 · Disclaimer
+
+Materials are provided **for research and educational purposes only** and do **not** replace professional medical guidance.
+
+---
+
+© 2025 David E. Rebellón‑Sánchez et al. · MIT License
