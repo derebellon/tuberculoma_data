@@ -27,7 +27,7 @@ This repository contains the fully reproducible workflow for the systematic revi
 | `scripts/`               | Executable R pipelines                       |
 |  ├── `Script_limpieza.R` | Data cleaning & export                       |
 |  └── `Script_analisis.R` | Descriptive analysis (gtsummary)             |
-| `figures/`               | Static figures (e.g. **Figure 1** BioRender) |
+| `figures/`               | Static figures (e.g. **Figure 1** PRISMA)    |
 | `README.md`              | This file                                    |
 | `LICENSE`                | MIT Licence                                  |
 
