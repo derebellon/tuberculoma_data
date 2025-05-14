@@ -1,98 +1,100 @@
-# Cerebral Tuberculoma in Pregnancy (1975 – 2025)
+# Cerebral Tuberculoma in Pregnancy (1975–2025)
 
 ### Systematic Review & Descriptive Analysis of 33 Reported Cases
 
 ---
 
-**Pre‑print:** https://www.researchsquare.com/article/rs-4349914/v1
-**Last update:** 13 May 2025
+**Pre-print:** [https://www.researchsquare.com/article/rs-4349914/v1](https://www.researchsquare.com/article/rs-4349914/v1)
+**Last update:** 14 May 2025
 
 ---
 
 ## 1 · Project Scope
 
-This repository contains the fully reproducible workflow for the systematic review **“Cerebral Tuberculoma in Pregnant Women: A 50‑Year Synthesis of the Literature.”** We harmonised every individual‑level case published between January 1975 and March 2025 to describe presentation, diagnostics, treatment and maternal–fetal outcomes.
+This repository contains the fully reproducible workflow for the systematic review **“Cerebral Tuberculoma in Pregnant Women: A 50-Year Synthesis of the Literature.”** We harmonised every individual-level case published between January 1975 and March 2025 to describe presentation, diagnostics, treatment and maternal–fetal outcomes.
 
 ---
 
 ## 2 · Repository Structure
 
-| Path / File              | Purpose                                      |
-| ------------------------ | -------------------------------------------- |
-| `data/`                  | Curated datasets (Excel + RDS)               |
-|  ├── `df_symptoms.*`     | Maternal symptoms *(n = 33)*                 |
-|  ├── `df_clinical.*`     | Objective clinical findings                  |
-|  ├── `df_diagnosis.*`    | Laboratory, CSF & neuro‑imaging data         |
-|  └── `df_treatment.*`    | Management and outcomes                      |
-| `scripts/`               | Executable R pipelines                       |
-|  ├── `Script_limpieza.R` | Data cleaning & export                       |
-|  └── `Script_analisis.R` | Descriptive analysis (gtsummary)             |
-| `figures/`               | Static figures (e.g. **Figure 1** PRISMA)    |
-| `README.md`              | This file                                    |
-| `LICENSE`                | MIT Licence                                  |
+| Path / File               | Purpose                                                                                 |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| `data/`                   | Curated datasets (Excel + RDS)                                                          |
+| ├── `df_symptoms.*`       | Maternal symptoms *(n = 33)*                                                            |
+| ├── `df_clinical.*`       | Objective clinical findings                                                             |
+| ├── `df_diagnosis.*`      | Laboratory, CSF & neuro-imaging data                                                    |
+| └── `df_treatment.*`      | Management and outcomes                                                                 |
+| `scripts/`                | Executable R pipelines                                                                  |
+| ├── `Script_limpieza.R`   | Data cleaning & export                                                                  |
+| ├── `Script_analisis.R`   | Descriptive analysis (gtsummary)                                                        |
+| └── `Bias_graph_script.R` | Generates study bias assessment figure                                                  |
+| `figures/`                | Static figures (e.g. **Figure 1** PRISMA, **Figure 2** bias plot, **Figure 3** cascade) |
+| `README.md`               | This file                                                                               |
+| `LICENSE`                 | MIT Licence                                                                             |
 
 ---
 
-## 3 · Quick Start
+## 3 · Quick Start
 
-### 3.1 Prerequisites
+### 3.1 Prerequisites
 
 | Software | Tested version                                        |
 | -------- | ----------------------------------------------------- |
-| R        | ≥ 4.3                                                 |
-| RStudio  | ≥ 2023.12                                             |
+| R        | ≥ 4.3                                                 |
+| RStudio  | ≥ 2023.12                                             |
 | Packages | `dplyr`, `gtsummary`, `readxl`, `ggplot2`, `openxlsx` |
 
-### 3.2 Reproduce analysis
+### 3.2 Reproduce analysis
 
 ```bash
 # Clone repository
 git clone https://github.com/derebellon/tuberculoma_data.git
 cd tuberculoma_data
 
-# Generate cleaned datasets
+# Generate cleaned datasets and figures
 Rscript scripts/Script_limpieza.R
 
-# Produce summary tables
+# Produce summary tables and bias figure
 Rscript scripts/Script_analisis.R
+Rscript scripts/Bias_graph_script.R
 ```
 
-Tables print to console; redirect output if persistent files are required.
+Tables and figures print to console or save to `figures/`.
 
 ---
 
 ## 4 · Key Findings (snapshot)
 
-| Domain                     | Principal result (n = 33)                                      |
+| Domain                     | Principal result (n = 33)                                      |
 | -------------------------- | -------------------------------------------------------------- |
-| **Median maternal age**    | 26 y (IQR 23–29)                                               |
-| **Diagnosis timing**       | 45 % ante‑partum · 55 % post‑partum                            |
-| **Dominant symptoms**      | Headache 59 % · Fever 56 % · Seizures 48 %                     |
-| **Neuro‑imaging**          | 70 % supratentorial · 30 % infratentorial; 58 % ring‑enhancing |
-| **Treatment**              | 97 % four‑drug anti‑TB + steroids; 60 % biopsy/resection       |
-| **Maternal mortality**     | 4.5 %                                                          |
-| **Live births**            | 26 / 33 pregnancies (79 %); 72 % pre‑term                      |
-| **Neonatal complications** | 50 % overall; congenital TB 17 %                               |
+| **Median maternal age**    | 26 y (IQR 23–29)                                               |
+| **Diagnosis timing**       | 45 % ante-partum · 55 % post-partum                            |
+| **Dominant symptoms**      | Headache 59 % · Fever 56 % · Seizures 48 %                     |
+| **Neuro-imaging**          | 70 % supratentorial · 30 % infratentorial; 58 % ring-enhancing |
+| **Treatment**              | 97 % four-drug anti-TB + steroids; 60 % biopsy/resection       |
+| **Maternal mortality**     | 4.5 %                                                          |
+| **Live births**            | 26 / 33 pregnancies (79 %); 72 % pre-term                      |
+| **Neonatal complications** | 50 % overall; congenital TB 17 %                               |
 
-*See **Figure 1** in `figures/` for the symptom‑to‑outcome cascade.*
+*See **Figure 1–3** in `figures/` for PRISMA flow, bias assessment, and symptom-to-outcome cascade.*
 
 ---
 
 ## 5 · Citation
 
-> Rebellón‑Sánchez DE, Vinueza D, Castro Restrepo DE, Llanos JA, Rosso F.
+> Rebellón-Sánchez DE, Vinueza D, Castro Restrepo DE, Llanos JA, Rosso F.
 > *Cerebral Tuberculoma in Pregnancy (1975–2025): Systematic Review & Descriptive Analysis of 33 Cases* \[dataset and code]. GitHub. 2025.
 > URL: [https://github.com/derebellon/tuberculoma\_data](https://github.com/derebellon/tuberculoma_data)
 
-Please cite the pre‑print once available for full methodological details.
+Please cite the pre-print once available for full methodological details.
 
 ---
 
 ## 6 · Contributing
 
-Pull requests improving documentation, reproducibility or extending analyses are welcome. For data or code queries contact **David E. Rebellón‑Sánchez**:
+Pull requests improving documentation, reproducibility or extending analyses are welcome. For data or code queries contact **David E. Rebellón-Sánchez**:
 
-* ✉️ david.rebellon‑[sanchez@lshtm.ac.uk](mailto:sanchez@lshtm.ac.uk) │ [derebellons@gmail.com](mailto:derebellons@gmail.com)
+* ✉️ [david.rebellon-sanchez@lshtm.ac.uk](mailto:david.rebellon-sanchez@lshtm.ac.uk) │ [derebellons@gmail.com](mailto:derebellons@gmail.com)
 
 ---
 
@@ -102,4 +104,4 @@ Materials are provided **for research and educational purposes only** and do **n
 
 ---
 
-© 2025 David E. Rebellón‑Sánchez et al. · MIT License
+© 2025 David E. Rebellón-Sánchez et al. · MIT License
